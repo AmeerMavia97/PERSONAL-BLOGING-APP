@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user login</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,300;0,500;1,300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- START NAVBAR AREA-->
+    <div class="flex bg-[#7c47f6] p-2 justify-around ">
+        <div class="mr-7">
+            <h1 class="font-poppins text-white ">PERSONAL BLOGING APP</h1>
+        </div>
+        <div>
+            <a href="index.html">
+                <h1 class="font-poppins text-white">Signup</h1>
+            </a>
+        </div>
+    </div>
+    <!-- END NAVBAR  AREA-->
+
+
+    <!-- START MAIN HEAD AREA-->
+
+    <div class="">
+        <h1 class=" font-poppins text-[40px] ml-[10%] mt-3 font-bold">Login</h1>
+    </div>
+
+    <!-- END MAIN HEAD AREA -->
+
+
+    <!-- START FORM  AREA-->
+
+    <div class=" bg-[#f8f9fa] p-5 pb-[16%] mt-4 ">
+        <form class=" rounded shadow-xl ml-[30%] mt-14 mr-[35%] bg-white" id="form">
+            <input
+                class="ml-[22%] w-[53%] h-[33px] mt-[60px]  border-gray-300 rounded-md border-[1px] border-solid hover:border-[#7c47f6] border-[1px]border-solid "
+                type="email"  placeholder=" Email" id="email"> <br>
+
+            <input
+                class="ml-[22%] w-[53%] h-[33px] mt-4 border-gray-300 rounded-md text-gray-300 border-[1px] border-solid hover:border-[#7c47f6] border-[1px]border-solid"
+                type="password" placeholder=" Password" id="password"> <br>
+            <p class="ml-[23%] font-poppins text-red-500 text-[13px]" id="errormess"></p>
+            <button
+                class=" ml-[38%] p-[10px] pl-[15px] text-white font-poppins  mb-5  mt-4 pr-[15px] rounded-md bg-[#7c47f6]  "
+                type="submit">Login</button>
+            <br> <br>
+        </form>
+    </div>
+
+    <!-- END FORM AREA -->
+
+    <!-- CONNECT JS  -->
+    <script type="module" src="./script/login.js"></script>
+
+</body>
+
+</html>
