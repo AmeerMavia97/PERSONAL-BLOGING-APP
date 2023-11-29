@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>blogs</title>
     <link rel="stylesheet" href="./dist/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,300;0,500;1,300&display=swap"
@@ -21,7 +21,7 @@
             <h1 class="font-poppins text-white ">PERSONAL BLOGING APP</h1>
         </div>
         <div class="flex gap-8">
-           <a href="profile.html"><p class="font-poppins text-white">mavia</p></a> 
+            <a href="profile.html"><p class="font-poppins text-white">mavia</p></a>
             <a href="login.html">
                 <h1 class="font-poppins text-white">Logout</h1>
             </a>
@@ -31,45 +31,26 @@
 
 
     <!-- START MAIN HEAD AREA-->
- 
+
     <div class="">
-        <h1 class=" font-poppins text-[35px] ml-[10%] mt-3 font-bold">Dashboard</h1>
+        <h1 class=" font-poppins text-[35px] ml-[10%] mt-5 font-bold">Good Morning Readers!</h1>
     </div>
 
     <!-- END MAIN HEAD AREA -->
 
 
-    <!-- START FORM  AREA-->
-
-    <div class=" bg-[#f8f9fa] p-5 pb-[30px] mt-4 ">
-        <form class=" rounded shadow-xl ml-[10%] mt-4 mr-[20%] bg-white" id="form">
-            <input
-                class="ml-[10%] w-[80%] h-[40px] mt-[60px]  border-gray-300 rounded-md border-[1px] border-solid hover:border-[#7c47f6] border-[1px]border-solid "
-                type="text" required minlength="5" maxlength="40" placeholder=" Title"> <br>
-
-            <input
-                class="ml-[10%] w-[80%] h-[120px] mt-4  border-gray-300 rounded-md text-gray-300 border-[1px] border-solid hover:border-[#7c47f6] border-[1px]border-solid"
-                type="text" required maxlength="300" placeholder=" Description"> <br>
-            <p class="ml-[23%] font-poppins text-red-500 text-[13px]" id="errormess"></p>
-            <button
-                class=" ml-[10%] p-[10px] pl-[20px] text-white font-poppins  mb-5  mt-4 pr-[20px] rounded-md bg-[#7c47f6]  "
-                type="submit">Publish blog</button>
-            <br> <br>
-        </form>
-    </div>
-
-    <!-- END FORM AREA -->
 
     <!-- START BLOGS AREA -->
-    <div class="bg-[#f8f9fa]">
+    <div class="bg-[#f8f9fa] mt-4 pb-5">
+
         <!-- START MAIN HEAD -->
         <div class="bg-[#f8f9fa] pt-6 mb-7 ">
-            <h1 class="font-poppins text-black text-[30px] ml-[11%] ">My Blogs</h1>
+            <h1 class="font-poppins text-black text-[30px] ml-[11%] ">All Blogs</h1>
         </div>
         <!-- END MAIN HEAD -->
 
         <!-- START POST -->
-        <div class="bg-white border-gray-300 pb-11 border-solid border-[1px] ml-[10%] mr-[20%] rounded-xl ">
+        <div class="bg-white mb-5 border-gray-300 pb-7 border-solid border-[1px] ml-[10%] mr-[20%] rounded-xl ">
 
             <div class="flex">
                 <img class="ml-9 mt-6 h-[85px] rounded-2xl w-[90px]"
@@ -93,18 +74,18 @@
                     dolorem! Vel, tempore beatae amet doloremque praesentium quos est commodi voluptatum ipsam quis!
                     Veniam labore sint a, accusamus harum eaque. Impedit ea neque nam aspernatur eum, eos dolores.</p>
             </div>
-
-            <div>
-                <button class="ml-9 mt-7 font-poppins  text-[#7c47f6]">DELETE</button>
-                <button class="ml-6 font-poppins text-[#7c47f6]">EDIT</button>
-            </div>
+            <a class="font-poppins  text-purple-400" href="allblogs.html">
+                <p class="ml-9 mt-6">See all from this user</p>
+            </a>
         </div>
         <!-- END POST -->
+
     </div>
+
     <!-- END BLOGS AREA -->
 
     <!-- CONNECT JS  -->
-    <script type="module" src="./script/dashboard.js"></script>
+    <script type="module" src="./script/readers.js"></script>
 
 </body>
 
