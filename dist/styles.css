@@ -1,0 +1,34 @@
+.postprofile{
+    width: 90px;
+    height: 86px;
+    margin-top: 10px; 
+    margin-left: 20px;
+
+}
+.profile2{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+.profile2name{
+    margin-left: 15px;
+    margin-top: 30px;
+    font-size: 25px;
+}
+.postdescription{
+    margin-left: 25px;
+    margin-top: 25px;
+    color: gray;
+    margin-right: 30px;
+}
+.postname{
+    margin-top: 8px;
+    margin-left: 10px;
+}
+.postseeallpage{
+    margin-left: 25px;
+    margin-top: 25px;
+    color: #7c47f6;
+    cursor: pointer;
+    margin-bottom: 20px;
+}

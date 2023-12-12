@@ -11,7 +11,7 @@ loginform.addEventListener("submit", (e) => {
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
             const user = userCredential.user;
-            window.location = "dashboard.html"
+            window.location = "index.html"
         })
         .catch((error) => {
             const errorCode = error.code;

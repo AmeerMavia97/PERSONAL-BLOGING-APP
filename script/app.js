@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
-import { auth, db } from "./config.js"
+import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-storage.js";
+import { auth, db ,storage} from "./config.js"
 
 const registerform = document.querySelector("#form");
 const firstname = document.querySelector("#firstname");
@@ -9,6 +10,7 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const confirmpassword = document.querySelector("#confirmpassword");
 const errorMess = document.querySelector("#errormess")
+const userimg = document.querySelector("#img")
 
 registerform.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -16,14 +18,31 @@ registerform.addEventListener('submit', (e) => {
         createUserWithEmailAndPassword(auth, email.value, password.value)
             .then((userCredential) => {
                 const user = userCredential.user;
-                addDoc(collection(db, "registeruser"), {
-                    firstname: firstname.value,
-                    lastname: lastname.value,
-                    email: email.value,
-                    uid: user.uid,
+                const img = userimg.files[0]
+                const storageRef = ref(storage, email.value);
+                uploadBytes(storageRef, img).then(() => {
+                    getDownloadURL(ref(storageRef))
+                        .then((url) => {
+                            addDoc(collection(db, "registeruser"), {
+                                firstname: firstname.value,
+                                lastname: lastname.value,
+                                email: email.value,
+                                uid: user.uid,
+                                profilepic: url
+                            });
+                            Swal.fire("REGISTER SUCCESSFULLY");
+                            // window.location = 'index.html'
+                        })
+                        // .then(() => {
+                        // //     console.log(res);
+                        //
+                            //  
+                        // })
+                        .catch((error) => {
+                            console.log(error);
+                          });
+                        
                 });
-                //   window.location = "home.html"
-
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -35,10 +54,10 @@ registerform.addEventListener('submit', (e) => {
         errorMess.innerHTML = `Password are not same`
     }
 
-    firstname.value = "";
-    lastname.value = "";
-    email.value = "";
-    password.value = "";
-    confirmpassword.value = "";
+    // firstname.value = "";
+    // lastname.value = "";
+    // email.value = "";
+    // password.value = "";
+    // confirmpassword.value = "";
 
 })
