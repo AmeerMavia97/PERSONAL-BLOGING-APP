@@ -56,20 +56,20 @@ function printdata() {
         <div class="bg-white  mt-6 border-gray-300 pb-11 border-solid border-[1px] ml-[10%] mr-[20%] rounded-xl ">
 
         <div class="flex">
-            <img class="ml-9 mt-6 h-[86px] rounded-2xl w-[90px]"
+            <img class="postprofile ml-9 mt-6 h-[86px] rounded-2xl w-[90px]"
                 src="${item.profilepic}" alt="">
-            <div>
+            <div class="postname" >
                 <h1 class="ml-4 mt-6 font-poppins font-bold text-xl">${item.title}</h1>
                 <p class="ml-4 mt-[9px] font-poppins text-gray-400">${names + " " +  date}</p>
             </div>
         </div>
 
         <div class="">
-            <p class="ml-9 mt-10 text-gray-400 mr-8">${item.description}</p>
+            <p class="postdescription ml-9 mt-10 text-gray-400 mr-8">${item.description}</p>
         </div>
 
-        <div class="">
-            <button id="delete" class="ml-9 mt-7 font-poppins  text-[#7c47f6]">DELETE</button>
+        <div>
+            <button id="delete" class="postseeallpage2 ml-9 mr-2 mt-7 font-poppins  text-[#7c47f6]">DELETE</button>
             <button id="edit" class="ml-6 font-poppins text-[#7c47f6]">EDIT</button>
         </div>
 
@@ -114,8 +114,7 @@ function printdata() {
 // GET DATA FROM FIRESTORE
 async function getdatafromfirestore(uid) {
     arr.length = 0;
-    const q = query(collection(db, "posts"),orderBy(' postDate' , 'desc') , where("uid", "==", uid));
-
+    const q = query(collection(db, "posts"),orderBy('postDate' , 'desc') , where("userid", "==", uid));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         arr.push({ ...doc.data(), docId: doc.id })

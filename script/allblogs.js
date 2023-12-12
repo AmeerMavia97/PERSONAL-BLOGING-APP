@@ -1,12 +1,12 @@
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-import { collection, query, where, getDocs ,orderBy } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
+import { collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 import { auth, db } from "./config.js"
 
-const data = document.querySelector('#data')  
+const data = document.querySelector('#data')
 const username = document.querySelector("#username")
 const logout = document.querySelector("#logout")
 const Dashboard = document.querySelector("#dashboard")
-const userprofile =  document.querySelector("#userprofile")
+const userprofile = document.querySelector("#userprofile")
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
@@ -24,33 +24,43 @@ onAuthStateChanged(auth, async (user) => {
     }
 });
 
+logout.addEventListener("click", () => {
+    signOut(auth).then(() => {
+        window.location = "login.html"
+    }).catch((error) => {
+    });
+})
+
 const spasificBlogsArry = [];
 
-let userid ;
-const id = localStorage.getItem('id')
-console.log(id);
-const q = query(collection(db, "specificuser"), orderBy('postDate' , 'desc'), where('userid' , "==" , id) );
-const querySnapshot = await getDocs(q);
-querySnapshot.forEach((doc) => {
-    spasificBlogsArry.push( {...doc.data()})
-    userid = doc.data().userid
-    // console.log();
-});
+let userid;
+// async function getdatafromfirestore() {
+    // spasificBlogsArry.length = 0;
+    const id = localStorage.getItem('id')
+    console.log(id);
+    const q = query(collection(db, "specificuser"), orderBy('postDate', 'desc'), where('userid', "==", id));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        spasificBlogsArry.push({ ...doc.data() })
+        userid = doc.data().userid
+        // console.log();
+    });
+// }
+// getdatafromfirestore()
 
 
-
- function printdata(){
+function printdata() {
     // spasificBlogsArry.length = 0
     data.innerHTML = "";
-        spasificBlogsArry.map((item) => {
-            // console.log(item);
-            let timestamp = item.postDate.seconds;
-            let date = new Date(timestamp * 1000);
-            let year = date.getFullYear()
-            let month = date.getMonth() + 1
-            let day = date.getDate();
-            let formattedDate =`${day.toString().padStart(2,'0')} ${month} ${year}`
-            data.innerHTML += ` <div class="bg-white mb-5 border-gray-300 pb-7 border-solid border-[1px] ml-[10%] mr-[20%] rounded-xl ">
+    spasificBlogsArry.map((item) => {
+        // console.log(item);
+        let timestamp = item.postDate.seconds;
+        let date = new Date(timestamp * 1000);
+        let year = date.getFullYear()
+        let month = date.getMonth() + 1
+        let day = date.getDate();
+        let formattedDate = `${day.toString().padStart(2, '0')} ${month} ${year}`
+        data.innerHTML += ` <div class="bg-white mb-5 border-gray-300 pb-7 border-solid border-[1px] ml-[10%] mr-[20%] rounded-xl ">
         
             <div class="flex">
                 <img class="postprofile"
@@ -67,7 +77,7 @@ querySnapshot.forEach((doc) => {
             </div>
            
         </div>`
-    
+
         userprofile.innerHTML = `
         <div class="flex mb-6">
                 <img class="profile2  ml-[10%] rounded-full   shadow-lg " src="${item.profilepic}" alt="">
@@ -76,11 +86,11 @@ querySnapshot.forEach((doc) => {
                 <p class="mt-3 font-poppins text-gray-400">${item.email}</p>
                 </div>
             </div>`
-        
-        })
-        
 
-   
+    })
+
+
+
 }
 printdata()
 

@@ -76,7 +76,7 @@ async function getdatafromfirestore() {
         <div>
             <p class="postdescription ml-9 mt-10 text-gray-400 mr-8">${item.description}</p>
         </div>
-        <a class="font-poppins cursor-pointer  text-purple-400" >
+        <a class="font-poppins cursor-pointer   text-purple-400" >
         <p class="postseeallpage" id="specificuserdata" class="mb-6 ml-9 mt-6">See all from this user</p>
     </a>
     </div>`
@@ -111,9 +111,10 @@ async function getdatafromfirestore() {
         });
         console.log("User Posts:", userPosts);
        
-
-        // window.location = "./allblogs.html";
+        window.location = "./allblogs.html";
         });
+       
+
     });
 
 }

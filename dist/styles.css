@@ -32,3 +32,26 @@
     cursor: pointer;
     margin-bottom: 20px;
 }
+.postseeallpage2{
+    margin-left: 25px;
+    margin-top: 25px;
+    color: #7c47f6;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+/* #preload{
+    background-color: #000 url(https://i.pinimg.com/originals/d4/67/89/d46789ac9224fdaf9d8652cba6191f8e.gif) no-repeat center center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+} */
+
+.profilename{
+    /* mt-6 ml-[36%] font-poppins text-3xl */
+    margin-top: 17px;
+    margin-left: 36%;
+    font-family: poppins;
+    font-size: 30px;
+}

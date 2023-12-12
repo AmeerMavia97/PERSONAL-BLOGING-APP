@@ -28,8 +28,8 @@ function nameupdate(docId){
     const editbtn = document.querySelector("#btn")
 
         editbtn.addEventListener("click", async () => {
-            const updatefirstname = prompt("enter your updatetodo")
-            const updatelastname = prompt("enter your updatetodo")
+            const updatefirstname = prompt("enter your firstname")
+            const updatelastname = prompt("enter your lastname")
             if (updatefirstname !== null && updatelastname !== null) {
             await updateDoc(doc(db, "registeruser", docId), {
                 firstname: updatefirstname,
@@ -45,7 +45,7 @@ function nameupdate(docId){
 
 function namerender(doce) {
     username2.innerHTML = `
-    <h1 class=" mt-6 ml-[36%] font-poppins text-3xl">${doce}</h1>
+    <h1 class="profilename">${doce}</h1>
     <p><i id="btn" class="mt-8 text-[#7c47f6] text-xl fa-regular fa-pen-to-square"></i></p>`
 
     console.log(doce);

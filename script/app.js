@@ -11,6 +11,7 @@ const password = document.querySelector("#password");
 const confirmpassword = document.querySelector("#confirmpassword");
 const errorMess = document.querySelector("#errormess")
 const userimg = document.querySelector("#img")
+const preload = document.querySelector("#preload")
 
 registerform.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -29,20 +30,16 @@ registerform.addEventListener('submit', (e) => {
                                 email: email.value,
                                 uid: user.uid,
                                 profilepic: url
-                            });
+                            }
+                            );
                             Swal.fire("REGISTER SUCCESSFULLY");
-                            // window.location = 'index.html'
                         })
-                        // .then(() => {
-                        // //     console.log(res);
-                        //
-                            //  
-                        // })
                         .catch((error) => {
                             console.log(error);
                           });
                         
                 });
+                
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -50,14 +47,14 @@ registerform.addEventListener('submit', (e) => {
                 errorMess.innerHTML = errorCode
 
             });
+
     } else {
         errorMess.innerHTML = `Password are not same`
     }
-
     // firstname.value = "";
     // lastname.value = "";
     // email.value = "";
     // password.value = "";
     // confirmpassword.value = "";
-
+//  window.location = "index.html"
 })
